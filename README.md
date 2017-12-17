@@ -1,5 +1,5 @@
 # ClouserDemo
-Use clouser in iOS using swift language 
+Use closures in iOS using swift language 
 
   
 # Requirements
