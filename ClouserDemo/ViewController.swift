@@ -10,16 +10,39 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var labelTextChange: UILabel!
+    
+    //This is clouser
+    var clouseName = { () -> () in }
+    //and we can create another variable for storing text and calling clouser
+    //using didSet method to call clouser
+    var value : String?{
+        didSet{
+            clouseName()
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+        //now hear we declare clouse body and use them
+        clouseName = { [weak self] in
+            //set lable text using value
+            
+            self?.labelTextChange.text = self?.value
+        }
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func textEditingChanged(_ sender: UITextField) {
+        //This is textfield text changed action
+        //now first we create clouser
+    
+        //and hear we set textfield value in value variable 
+        value = sender.text
     }
-
+    
 
 }
 
